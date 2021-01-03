@@ -19,11 +19,11 @@ const ShoppingList = ({ products, onRemove }) => {
   return (
     <div className='shopping-list'>
       <h1>Shopping list</h1>
-      <ul>
+      <ol>
         {products.map((product, index) => (
           <ShoppingListItem onClick={onRemove} key={`${product.name}_${index}`} product={product} />
         ))}
-      </ul>
+      </ol>
     </div>
   )
 }

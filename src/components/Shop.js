@@ -8,7 +8,8 @@ const Shop = () => {
   const [shoppingCartItems, setShoppingCardItems] = useState(localStorageProducts)
 
   const onAddItemToShoppingCart = item => {
-    const updatedItems = shoppingCartItems.concat({...item})
+    const newProduct = {...item}
+    const updatedItems = shoppingCartItems.concat(newProduct)
     setShoppingCardItems(updatedItems)
   }
 

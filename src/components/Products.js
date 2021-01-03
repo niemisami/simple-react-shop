@@ -19,12 +19,12 @@ Product.propTypes = {
   }).isRequired
 }
 
-const Products = ({  onAddItemToShoppingCart }) => {
+const Products = ({ onAddItemToShoppingCart }) => {
   return (
     <section className='products'>
       <h2>Tuotteet</h2>
       <ul className='product-list'>
-        {products.map((product, index) => (
+        {products.map(product => (
           <Product key={product.name} product={product} onClick={onAddItemToShoppingCart} />
         ))}
       </ul>
