@@ -19,8 +19,8 @@ const ShoppingList = ({ products }) => {
     <div className='shopping-list'>
       <h1>Shopping list</h1>
       <ul>
-        {products.map(product => (
-          <ShoppingListItem key={product.name} product={product} />
+        {products.map((product, index) => (
+          <ShoppingListItem key={`${product.name}_${index}`} product={product} />
         ))}
       </ul>
     </div>

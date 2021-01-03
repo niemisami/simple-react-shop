@@ -24,7 +24,7 @@ const Products = ({  onAddItemToShoppingCart }) => {
     <section className='products'>
       <h2>Tuotteet</h2>
       <ul className='product-list'>
-        {products.map(product => (
+        {products.map((product, index) => (
           <Product key={product.name} product={product} onClick={onAddItemToShoppingCart} />
         ))}
       </ul>
