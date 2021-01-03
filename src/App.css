@@ -47,7 +47,10 @@
   height: 100px;
 }
 
-
 .shopping-list {
   flex-basis: 40%;
+}
+
+.shopping-list-item {
+  cursor: pointer;
 }

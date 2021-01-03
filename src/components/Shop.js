@@ -8,7 +8,12 @@ const Shop = () => {
   const [shoppingCartItems, setShoppingCardItems] = useState(localStorageProducts)
 
   const onAddItemToShoppingCart = item => {
-    const updatedItems = shoppingCartItems.concat(item)
+    const updatedItems = shoppingCartItems.concat({...item})
+    setShoppingCardItems(updatedItems)
+  }
+
+  const onRemoveItemFromShoppingCart = productToBeRemoved => {
+    const updatedItems = shoppingCartItems.filter(product => product !== productToBeRemoved)
     setShoppingCardItems(updatedItems)
   }
 
@@ -21,7 +26,7 @@ const Shop = () => {
     <h1>Kauppa</h1>
     <div className='shop'>
       <Products onAddItemToShoppingCart={onAddItemToShoppingCart} />
-      <ShoppingList products={shoppingCartItems} />
+      <ShoppingList products={shoppingCartItems} onRemove={onRemoveItemFromShoppingCart} />
     </div>
     </>
   )

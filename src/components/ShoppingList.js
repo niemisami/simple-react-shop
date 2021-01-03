@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ShoppingListItem = ({ product }) => (
-  <li>
+const ShoppingListItem = ({ product, onClick }) => (
+  <li className='shopping-list-item' onClick={() => onClick(product)}>
     {product.name}
   </li>
 )
@@ -11,16 +11,17 @@ ShoppingListItem.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string.isRequired,
     details: PropTypes.string.isRequired,
-  }).isRequired
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
-const ShoppingList = ({ products }) => {
+const ShoppingList = ({ products, onRemove }) => {
   return (
     <div className='shopping-list'>
       <h1>Shopping list</h1>
       <ul>
         {products.map((product, index) => (
-          <ShoppingListItem key={`${product.name}_${index}`} product={product} />
+          <ShoppingListItem onClick={onRemove} key={`${product.name}_${index}`} product={product} />
         ))}
       </ul>
     </div>
@@ -32,7 +33,8 @@ ShoppingList.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       details: PropTypes.string.isRequired
-  })).isRequired
+  })).isRequired,
+  onRemove: PropTypes.func.isRequired
 }
 
 export default ShoppingList
